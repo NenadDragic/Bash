@@ -3,7 +3,7 @@
 # Set the FTP server details
 HOST="nas.dragic.com"
 USER="sftp"
-PASS="Test2023!"
+PASS=""
 REMOTE_DIR="/DashCam"
 LOCAL_DIR="/mnt/sda1/DCIM/Photo"
 

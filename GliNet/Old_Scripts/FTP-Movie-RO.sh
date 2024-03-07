@@ -3,7 +3,7 @@
 # Variables
 USER='SFTP'
 HOST='nas.dragic.com'
-PASSWORD='TJj2Fy*544ZJ$!Yv2Q77cHzJ'
+PASSWORD=''
 LOCAL_DIR='/mnt/sda1/DCIM/Movie/RO'
 REMOTE_DIR='/DashCam/Movie/RO'
 

@@ -51,3 +51,4 @@ trap "kill -KILL $$" SIGTERM
 wait
 
 echo "Process finished"
+
