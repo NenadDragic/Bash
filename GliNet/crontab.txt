@@ -1,0 +1,16 @@
+# Daily Backup
+0 0 * * FRI sh Scripts/Backup.sh
+
+# Daily Delete files older then 10 days
+0 2 * * * sh Scripts/Delete_10Days_Old_Files.sh
+
+# Pictures every 5 min
+*/5 * * * * sh Scripts/DashCam-Router-Pictures.sh
+*/5 * * * * sh Scripts/Router-NAS-Pictures.sh
+
+# Read only videos every 10 min
+*/10 * * * * sh Scripts/DashCam-Router-Movie-RO.sh
+*/10 * * * * sh Scripts/Router-NAS-Movie-RO.sh
+
+# Status every hour
+0 * * * * sh Scripts/File-Count-FTP-Upload.sh
