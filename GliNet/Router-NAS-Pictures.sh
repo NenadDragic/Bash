@@ -1,25 +1,14 @@
 #!/bin/bash
 
-# Run the ls command and tell the shell to ignore hangups
-nohup ls &
+# Backup the data
+#sudo rsync -av ~ -e "ssh -l Debian_Backup" nas.dragic.com::NetBackup/BackupData/Muddi-E750/$(date +%Y-%m-%d)
 
-# Define the target host
-target="nas.dragic.com"
 
-nmap -p 22 -Pn $target | grep -q "22/tcp open"
+mkfifo /tmp/pw_pipe
+cat ../root/Adm/pw_nas.txt > /tmp/pw_pipe & 
+sudo sshpass -f /tmp/pw_pipe sudo rsync -av /mnt/sda1/DCIM/Photo -e "ssh -l Debian_Backup" nas.dragic.com::NetBackup/DashCam
 
-if [ $? -eq 0 ]; then
-  echo "Port 22 is open on $target."
-  sshpass -f /root/Adm/pw.txt rsync -avz --ignore-existing /mnt/sda1/DCIM/Photo SFTP@nas.dragic.com:/volume1/Ftp/DashCam/
-else
-  echo "Port 22 is not open on $target."
-fi
+rm /tmp/pw_pipe
 
-# Tell the shell to kill the process when it receives the SIGTERM signal
-trap "kill -KILL $$" SIGTERM
-
-# Wait for the process to finish
-wait
-
-echo "Process finished"
-
+#Exit
+exit

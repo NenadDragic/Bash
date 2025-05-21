@@ -1,6 +1,6 @@
 #!/bin/bash
 
-opkg install nano git openssh-sftp-server sshpass rsync nmap
+opkg install nano git openssh-sftp-server sshpass rsync nmap coreutils-nohup
 opkg update
 opkg list-upgradable | cut -f 1 -d ' ' | xargs opkg upgrade
 

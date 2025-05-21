@@ -13,4 +13,5 @@
 */10 * * * * sh Scripts/Router-NAS-Movie-RO.sh
 
 # Status every hour
-0 * * * * sh Scripts/File-Count-FTP-Upload.sh
+0 * * * * sh Scripts/File-Count-SSH-Upload.sh
+

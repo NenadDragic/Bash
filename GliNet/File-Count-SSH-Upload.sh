@@ -77,6 +77,25 @@ echo "$output" >> "$filename"
 #
 # FTP files
 #
-sshpass -v -f /root/Adm/pw.txt rsync -avz /root/File-Count-SD SFTP@nas.dragic.com:/volume1/Ftp/DashCam
-sshpass -v -f /root/Adm/pw.txt rsync -avz /root/File-Count-DashCam SFTP@nas.dragic.com:/volume1/Ftp/DashCam
-sshpass -v -f /root/Adm/pw.txt rsync -avz /root/File-Delete SFTP@nas.dragic.com:/volume1/Ftp/DashCam
+#sshpass -v -f /root/Adm/pw.txt rsync -avz /root/File-Count-SD SFTP@nas.dragic.com:/volume1/Ftp/DashCam
+#sshpass -v -f /root/Adm/pw.txt rsync -avz /root/File-Count-DashCam SFTP@nas.dragic.com:/volume1/Ftp/DashCam
+#sshpass -v -f /root/Adm/pw.txt rsync -avz /root/File-Delete SFTP@nas.dragic.com:/volume1/Ftp/DashCam
+
+mkfifo /tmp/pw_pipe
+cat ../root/Adm/pw_nas.txt > /tmp/pw_pipe & 
+sudo sshpass -f /tmp/pw_pipe sudo rsync -av /root/File-Count-SD -e "ssh -l Debian_Backup" nas.dragic.com::NetBackup/DashCam
+
+rm /tmp/pw_pipe
+
+
+mkfifo /tmp/pw_pipe
+cat ../root/Adm/pw_nas.txt > /tmp/pw_pipe & 
+sudo sshpass -f /tmp/pw_pipe sudo rsync -av /root/File-Count-DashCam -e "ssh -l Debian_Backup" nas.dragic.com::NetBackup/DashCam
+
+rm /tmp/pw_pipe
+
+mkfifo /tmp/pw_pipe
+cat ../root/Adm/pw_nas.txt > /tmp/pw_pipe & 
+sudo sshpass -f /tmp/pw_pipe sudo rsync -av /root/File-Delete -e "ssh -l Debian_Backup" nas.dragic.com::NetBackup/DashCam
+
+rm /tmp/pw_pipe
