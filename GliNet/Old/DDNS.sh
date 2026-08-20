@@ -1,3 +1,5 @@
 #!/bin/bash
-curl -s  -L "https://api.simply.com/ddns.php?apikey=VEoAX8fMFqaxOkmg&domain=dragic.com&hostname=car"
+
+# Set SIMPLY_DDNS_APIKEY in the environment before running (do not hardcode it here).
+curl -s -L "https://api.simply.com/ddns.php?apikey=${SIMPLY_DDNS_APIKEY}&domain=dragic.com&hostname=car"
 
