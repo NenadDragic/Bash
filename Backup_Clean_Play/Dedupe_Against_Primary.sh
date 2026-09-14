@@ -179,7 +179,6 @@ set -- "${ARGS[@]:-}"
 case "$MODE" in hash|name|both) ;; *) die "ugyldig mode: $MODE" ;; esac
 [[ $MIN_SIZE =~ ^[0-9]+$ ]] || die "--min-size skal vaere et tal"
 [[ $TOPN =~ ^[0-9]+$ ]] || die "--top skal vaere et tal"
-command -v sha256sum >/dev/null || die "sha256sum mangler"
 
 if [[ $APPLY -eq 1 && $ACTION == report ]]; then
     [[ $PURGE -eq 1 ]] && ACTION="delete" || ACTION="trash"
