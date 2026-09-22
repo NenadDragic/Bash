@@ -19,7 +19,7 @@ Run against two or more backup folders. Without `--apply`, nothing is changed â€
 ```shell
 #!/usr/bin/env bash
 #
-# dedupe_against_primary.sh
+# Dedupe_Against_Primary.sh
 #
 # Sammenligner daterede backupmapper og fjerner de filer i de AELDRE
 # mapper der allerede findes i en nyere. Den nyeste mappe er ren
@@ -50,11 +50,11 @@ declare -a EXCLUDES=()
 
 usage() {
     cat <<'EOF'
-dedupe_against_primary.sh v3 - ryd op i daterede backupmapper uden
+Dedupe_Against_Primary.sh v3 - ryd op i daterede backupmapper uden
                                nogensinde at roere den nyeste.
 
 BRUG
-    dedupe_against_primary.sh [tilvalg] MAPPE MAPPE [MAPPE ...]
+    Dedupe_Against_Primary.sh [tilvalg] MAPPE MAPPE [MAPPE ...]
 
 SAMMENLIGNING PAA TVAERS AF FLERE MAPPER
         --cascade       Behandl mapperne nyeste foerst, og sammenlign hver
@@ -118,7 +118,7 @@ OEVRIGT
     -h, --help          Denne hjaelp.
 
 TYPISK BRUG
-    ./dedupe_against_primary.sh --auto-primary --by-name --cascade --report \
+    ./Dedupe_Against_Primary.sh --auto-primary --by-name --cascade --report \
         /mnt/dragic/Bash/Admin/*/
 EOF
 }
@@ -198,7 +198,6 @@ set -- "${ARGS[@]:-}"
 case "$MODE" in hash|name|both) ;; *) die "ugyldig mode: $MODE" ;; esac
 [[ $MIN_SIZE =~ ^[0-9]+$ ]] || die "--min-size skal vaere et tal"
 [[ $TOPN =~ ^[0-9]+$ ]] || die "--top skal vaere et tal"
-command -v sha256sum >/dev/null || die "sha256sum mangler"
 
 if [[ $APPLY -eq 1 && $ACTION == report ]]; then
     [[ $PURGE -eq 1 ]] && ACTION="delete" || ACTION="trash"

@@ -31,11 +31,11 @@ declare -a EXCLUDES=()
 
 usage() {
     cat <<'EOF'
-dedupe_against_primary.sh v3 - ryd op i daterede backupmapper uden
+Dedupe_Against_Primary.sh v3 - ryd op i daterede backupmapper uden
                                nogensinde at roere den nyeste.
 
 BRUG
-    dedupe_against_primary.sh [tilvalg] MAPPE MAPPE [MAPPE ...]
+    Dedupe_Against_Primary.sh [tilvalg] MAPPE MAPPE [MAPPE ...]
 
 SAMMENLIGNING PAA TVAERS AF FLERE MAPPER
         --cascade       Behandl mapperne nyeste foerst, og sammenlign hver
@@ -99,7 +99,7 @@ OEVRIGT
     -h, --help          Denne hjaelp.
 
 TYPISK BRUG
-    ./dedupe_against_primary.sh --auto-primary --by-name --cascade --report \
+    ./Dedupe_Against_Primary.sh --auto-primary --by-name --cascade --report \
         /mnt/dragic/Bash/Admin/*/
 EOF
 }

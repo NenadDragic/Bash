@@ -15,14 +15,12 @@ This script performs the actual cleanup: it runs `Dedupe_Against_Primary.sh` wit
 
 Run with no arguments. This script modifies/deletes files, so run `TotalCleanUpScriptAnalyze.sh` first to review what would happen with `--report`.
 
-Note: the script's `DEDUPE` variable points to `dedupe_against_primary_new_6.sh`, while `TotalCleanUpScriptAnalyze.sh` points to `Dedupe_Against_Primary.sh` — check that this path matches the actual dedupe script filename before running.
-
 ```shell
 #!/usr/bin/env bash
 #===============================================================================
 # TotalCleanUpScriptCleanUp.sh
 #
-#   1) Kører dedupe_against_primary_new_6.sh med --apply for hver underfolder
+#   1) Kører Dedupe_Against_Primary.sh med --apply for hver underfolder
 #      i /mnt/dragic/Bash (undtagen Log)  -  dette ændrer/fjerner filer.
 #   2) Viser pladsforbruget TIL SIDST, efter oprydningen
 #      (Log-folderen tælles ikke med).
@@ -34,7 +32,7 @@ Note: the script's `DEDUPE` variable points to `dedupe_against_primary_new_6.sh`
 shopt -s nullglob
 
 BASE="/home/nenad/Documents/Backup Play/Bash"
-DEDUPE="/home/nenad/Documents/Backup Play/dedupe_against_primary_new_6.sh"
+DEDUPE="/home/nenad/Documents/Backup Play/Dedupe_Against_Primary.sh"
 LOG="$BASE/Log/TotalCleanUpScriptAnalyze_Log_After_$(date +%Y_%m_%d).log"
 
 mkdir -p "$BASE/Log"
