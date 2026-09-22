@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# dedupe_against_primary.sh
+# Dedupe_Against_Primary.sh
 #
 # Sammenligner daterede backupmapper og fjerner de filer i de AELDRE
 # mapper der allerede findes i en nyere. Den nyeste mappe er ren
